@@ -1,0 +1,104 @@
+                                                                                                   ##
+                                    +---------------------------------------------+                ##
+                                    | +-----------------------------------------+ |                ##
+                                    | | Introducing Secure Sockets Layers (SSL) | |                ##
+                                    | +-----------------------------------------+ |                ##
+                                    +---------------------------------------------+                ##
+                                                                                                   ##
+- Can apply encryption protocols in several places to ensure security of data                      ##
+                                                                                                   ##
++-----------------------------------------+                                                        ##
+| Open Source Interconnection (OSI) Model |                                                        ##
++-----------------------------------------+                                                        ##
+                                                                                                   ##
+Layers:                                                                                            ##
+                                                                                                   ##
++-------------------------------+                                                                  ##
+|          Application          | <-------------------------- Secure Electronic Transaction (SET)  ##
++-------------------------------+                             for credit card transactions.        ##
+|         Presentation          |                             Pretty Good Privacy (PGP) &/or       ##
++-------------------------------+                             S/MIME for email apps                ##
+|            Session            |                                                                  ##
++-------------------------------+                                                                  ##
+|           Transport           | <-------------------------- SSL/Transport Layer Security (TLS)   ##
++-------------------------------+                             Sockets created at this level        ##
+|            Network            | <-------------+             Socket = IP Address + Port Address   ##
++-------------------------------+               |                                                  ##
+|           Data Link           |               +------------ IPsec                                ##
++-------------------------------+                                                                  ##
+|            Physical           |                                                                  ##
++-------------------------------+                                                                  ##
+                                                                                                   ##
++------------------------------------------------------------------------------------------------+ ##
+|              SSL designed to use TCP to provide reliable end-to-end secure service             | ##
++------------------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
++------------------------------------------------------------------------------------------------+ ##
+|        SSL (standard for web security) & TLS = same protocol using different algorithms        | ##
++------------------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
+- SSL above Transport layer but below Application layer                                            ##
+- SSL = 2 layers of protocols                                                                      ##
+            |                                                                                      ##
+            |                                                                                      ##
+            |----------------------------------------------------------------------------------+   ##
+            |                                                                                  |   ##
+           \|/                                                                                 |   ##
++-------------------------------------------------------------------------------------------+  |   ##
+| Handshake Protocol                                                                        |  |   ##
+|     ~ Uses Asymmetric Encryption to establish shared secret key between client & server   |  |   ##
+|     ~ Consists of 3 sub-protocols:                                                        |  |   ##
+|         1. Change Cipher Spec: Message to say sender wants to change to new set of keys   |  |   ##
+|         2. Alert:              Indicates error/status change                              |  |   ##
+|         3. Handshake:          Allows server & client to...                               |  |   ##
+|           (completed before       > Negotiate session info                                |  |   ##
+|            any data exchanged)    > Authenticate to each other                            |  |   ##
+|                                   > Set up encryption params                              |  |   ##
++-------------------------------------------------------------------------------------------+  |   ##
+                                                                                               |   ##
+                                                                                               |   ##
+                                                                                              \|/  ##
+            +------------------------------------------------------------------------------------+ ##
+            | Record Protocol                                                                    | ##
+            |     ~ Uses secret key (established in Handshake Protocol) to protect comms between | ##
+            |       client & server                                                              | ##
+            |     ~ Provides:                                                                    | ##
+            |         > Confidentiality (using encryption)                                       | ##
+            |         > Message integrity (using a MAC)                                          | ##
+            |     ~ Session:                                                                     | ##
+            |         > Created by Handshake Protocol                                            | ##
+            |           (...to define set of cryptographic params)                               | ##
+            |         > Can have/be shared across multiple connections                           | ##
+            +------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
+Sequence Numbers: Each party maintains separate sequence numbers for messages for each connection  ##
+                                                                                                   ##
+                                                                                                   ##
++------------------------------------------------------------------------------------------------+ ##
+|                                               +------------------------------+                 | ##
+| Application Data                +-----<-------|                              |---->----+       | ##
+|                                 |             +------------------------------+         |       | ##
+|                                \|/                          \|/                       \|/      | ##
+|                           +-----------+                +-----------+             +-----------+ | ##
+| Fragment                  |           |                |           |             |           | | ##
+|                           +-----------+                +-----------+             +-----------+ | ##
+|                                                                                                | ##
+|                           +-----------+                                                        | ##
+| Compress                  |///////////| (optional)     +-------------------------------------+ | ##
+|                           +-----------+                | SSL                                 | | ##
+|                                                        |    ~ Provides privacy & data        | | ##
+|                           +---------------+            |      integrity between browser &    | | ##
+| Add MAC                   |///////////====|            |      server                         | | ##
+|                           +---------------+            |      (by using browser as VPN cli)  | | ##
+|                                                        |    ~ Supported by many vendors &    | | ##
+|                           +---------------+            |      depends on TTP for CA to issue | | ##
+| Encrypt                   |+++++++++++++++|            |      certificates used in           | | ##
+|                           +---------------+            |      transaction                    | | ##
+|                                                        +-------------------------------------+ | ##
+|                           +---------------+                                                    | ##
+| Append SSL Record         |+++++++++++++++|                                                    | ##
+| Header                    +---------------+                                                    | ##
++------------------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

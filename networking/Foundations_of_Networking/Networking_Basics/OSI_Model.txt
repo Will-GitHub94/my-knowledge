@@ -1,0 +1,210 @@
+                                                                                                   ##                                                                                                    ##
+                               +-------------------------------+                                   ##                                          +-------------------+                                     ##
+                               | +---------------------------+ |                                   ##                                          | +---------------+ |                                     ##
+                               | | Introducing the OSI Model | |                                   ##                                          | | Network Layer | |                                     ##
+                               | +---------------------------+ |                                   ##                                          | +---------------+ |                                     ##
+                               +-------------------------------+                                   ##                                          +-------------------+                                     ##
+                                                                                                   ##                                                                                                    ##
++---------------+                                                                                  ## - Controls operations of subnetwork (subnet) it is on                                              ##
+| ~ OSI Model ~ |                                                                                  ## - Determines best physical path for data, use different metrics to do this:                        ##
++---------------+                                                                                  ##     ~ Use network conditions (e.g. congestion, is node down? lot of traffic?)                      ##
+                                                                                                   ##     ~ Use priority of service (determine path based on path priority)                              ##
+- OSI = Open Systems Interconnection Reference Model                                               ##     ~ Use other factors (for example):                                                             ##
+- Created as reference & teaching aid                                                              ##         > No. of hops/steps between source & destination                                           ##
+  (teach how protocols work with networks to carry data & reference when creating new protocols)   ##         > Bandwidth/throughput                                                                     ##
+- NOT intended to reflect any actual network                                                       ##         > Types of tech needed to get from source to destination                                   ##
+                                                                                                   ##                                                                                                    ##
++------------------------------------------------------------------------+                         ## - Functions provided:                                                                              ##
+|     OSI Model      | Acronym (top to bottom) | Acronym (bottom to top) |                         ##     ~ Routing:                Routes frames among connected networks to get to destination         ##
++--------------------+-------------------------+-------------------------+                         ##     ~ Subnet traffic control: Allows routers to send instructions to sending routers to            ##
+| Application Layer  | All                     | Away                    |                         ##                               "throttle back" frame transmissions when buffers are filled          ##
++--------------------+                         |                         |                         ##                               (e.g. if router receiving too much info (buffer getting filled)...   ##
+| Presentation Layer | People                  | Pizza                   |                         ##                                ...router allowed to send message to sender to "throttle back")     ##
++--------------------+                         |                         |                         ##                                                                                                    ##
+|   Session Layer    | Seem                    | Sausage                 |                         ##                               Many other messages routers allowed to send to each other to make    ##
++--------------------+                         |                         |                         ##                               sure traffic control on subnet running at optimum                    ##
+|  Transport Layer   | To                      | Throw                   |                         ##     ~ Frame fragmentation:    Frame size = Maximum Transmission Unit (MTU) (1500 bytes)            ##
++--------------------+                         |                         |                         ##                               Determines MTU that routers down stream are using to transmit        ##
+|   Network Layer    | Need                    | Not                     |                         ##                               If data too big, breaks up to size of routers' MTU where data...     ##
++--------------------+                         |                         |                         ##                               ...will passing through                                              ##
+|   Data Link Layer  | Data                    | Do                      |                         ##                               Allows routers to fragment frame into smaller sizes if needed        ##
++--------------------+                         |                         |                         ##                               If broken down, reassembles full frame at destination                ##
+|   Physical Layer   | Processing              | Please                  |                         ##     ~ Logical-physical:       Translates logical addresses into physical ones                      ##
++--------------------+-------------------------+-------------------------+                         ##       address mapping                                                                              ##
+                                                                                                   ##     ~ Subnet usage:           Allows device (network layer) to keep track of frames forwarded...   ##
+- 2 parts of OSI model:                                                                            ##       accounting              ...by subnet intermediate systems                                    ##
+    ~ Abstract model:                        Has 7 layers                                          ##                               Can use this (^^) to produce billing info (usage, bandwidth etc.)    ##
+    ~ Set of specifically created protocols: Illustrate how protocols fit inside Abstract Model    ##                                                                                                    ##
+                                             Protocols NOT used in any networking system           ## - Can do all these functions as it builds specialised headers used by network layer on other       ##
+                                                                                                   ##   devices to route packets to destination                                                          ##
+                                                                                                   ## - Headers relieve higher layers (of OSI Model) of data transmission & switching tech that being    ##
+#####################################################################################################   used on network                                                                                  ##
+                                                                                                   ## - Use protocols on lower layers to send data to destinations separated by intermediate nodes       ##
+                                  +--------------------+                                           ## - Way data sent to intermediate nodes is by sending info between adjacent nodes                    ##
+                                  | +----------------+ |                                           ##   (like a chain of nodes until destination is reached)                                             ##
+                                  | | Physical Layer | |                                           ##                                                                                                    ##
+                                  | +----------------+ |                                           ##                                                                                                    ##
+                                  +--------------------+                                           ########################################################################################################
+                                                                                                   ##                                                                                                    ##
+- Concerned with physical (digital) transmission of binary data across network (cabling)           ##                                      +---------------------+                                       ##
+- Defines:                                                                                         ##                                      | +-----------------+ |                                       ##
+    ~ Encoding method to transmit binary data                                                      ##                                      | | Transport Layer | |                                       ##
+    ~ How bits placed on media (different places for different media used)                         ##                                      | +-----------------+ |                                       ##
+    ~ How to know when bits start & end                                                            ##                                      +---------------------+                                       ##
+    ~ Specs for media being used                                                                   ##                                                                                                    ##
+    ~ Kinds of media permitted for use on devices                                                  ## - Ensures messages are delivered:                                                                  ##
+    ~ How physical connections made with media                                                     ##     ~ Error-free                                                                                   ##
+    ~ Pin usage in physical connections that apply to physical media being used                    ##     ~ In correct sequence                                                                          ##
+      (Copper type media BUT if wireless, defines how waves modulated etc.)                        ##     ~ With no loss/duplication                                                                     ##
+                                                                                                   ##                                                                                                    ##
+- When standard specified, standard ONLY applies to specific type of media                         ## - Relieves higher layers (of OSI Model) of concern for transfer of data                            ##
+  (different types of media have different standards)                                              ## - Size & complexity of transport protocols dependent on service provided by Network Layer          ##
+                                                                                                   ##   (more functionality Network Layer provides = less functionality Transport Layer has to provide)  ##
+                                                                                                   ##                                                                                                    ##
+##################################################################################################### - Functions provided:                                                                              ##
+                                                                                                   ##     ~ Message Segmentation:     1. Accepts messages from Session Layer (1 above)                   ##
+                                  +---------------------+                                          ##                                 2. Splits message into smaller units                               ##
+                                  | +-----------------+ |                                          ##                                 3. Prepares header for each small unit created:                    ##
+                                  | | Data Link Layer | |                                          ##                                     > Contain certain elements...                                  ##
+                                  | +-----------------+ |                                          ##                                     > Start & end flags                                            ##
+                                  +---------------------+                                          ##                                     > Sequence info                                                ##
+                                                                                                   ##                                 4. Pass units down to Network Layer                                ##
+- Provides error-free transmission from 1 node to the next over physical media                     ##                                 5. Reassembles units in correct order                              ##
+- Establishes & terminates links between nodes                                                     ##                                                                                                    ##
+- Responsible for traffic control                                                                  ##                                 Imposes message size limits on Network Layer protocols             ##
+- Transmits & receives frames sequentially (in correct sequence)                                   ##     ~ Message Acknowledgement:  Provides reliable end-to-end delivery of messages                  ##
+- Responsible for frame acknowledgement:  Expects acknowledgement when sends frame to node         ##                                 End-to-end delivery accompanied by acknowledgements                ##
+                                          Sends acknowledgement when frame is received             ##                                 (knowing message safely sent/received)                             ##
+- Recovers from errors on Physical Layer: E.g. retransmit unacknowledged frames                    ##     ~ Message traffic control:  Controls rate of traffic sent when no buffers available            ##
+- Handles duplicate from receipt:         Eliminates 1 of 2 frames of same thing                   ##                                 (if no buffers available in sending device, transport layer...     ##
+                                          (if both sent to same node)                              ##                                  ...makes sure data rate stays same & is manageable by all...      ##
+- Responsible for frame delimiting:       Creates & recognises frame boundaries                    ##                                  ...devices in network)                                            ##
+                                          (indicating when frame starts & stops)                   ##     ~ Session multiplexing:     Breaks all data incoming on 1 link into separate data streams...   ##
+- Responsible for error checking:         Checks received frames for data integrity                ##                                 ...(sessions) based on higher level protocols data is intended for ##
+- Provides media access management:       Determines when node allowed to use physical media       ##                                 Tracks which message belongs to which session                      ##
+                                                                                                   ##                                                                                                    ##
+                                                                                                   ## - Transport Layer (& those above):                                                                 ##
+#####################################################################################################     ~ NOT responsible for transmission between nodes (job of Data Link & Network Layer)            ##
+                                                                                                   ##     ~ IS responsible for source to destination (end-to-end) transmission                           ##
+                                  +-------------------+                                            ##                                                                                                    ##
+                                  | +---------------+ |                                            ##                                                                                                    ##
+                                  | | Session Layer | |                                            ########################################################################################################
+                                  | +---------------+ |                                            ##                                                                                                    ##
+                                  +-------------------+                                            ##                                   +------------------------+                                       ##
+                                                                                                   ##                                   | +--------------------+ |                                       ##
+- Responsible for establishing sessions between processes running on different computers           ##                                   | | Presentation Layer | |                                       ##
+  (established sessions of PROCESSES...NOT handle the connection between computers)                ##                                   | +--------------------+ |                                       ##
+- Functions provided:                                                                              ##                                   +------------------------+                                       ##
+    ~ Session establishment, maintenance,: Allows app processes on diff. machines to do several... ##                                                                                                    ##
+      & termination                        ...things between machines, allows processes to...:     ## - Formats data to be presented to Application Layer                                                ##
+                                              1. Establish connection (session)                    ## - Access translator for network                                                                    ##
+                                              2. Use connection (session)                          ## - At sending station:   Translates data from Application Layer to common format to be sent across  ##
+                                              3. Terminate connection (session)                    ##                         network                                                                    ##
+    ~ Session Support:                     Allows processes to communicate over network, by:       ## - At receiving station: Translates data from common format to format used by Application Layer     ##
+                                              1. Providing security                                ##                                                                                                    ##
+                                              2. Providing name recognition                        ## - Functions provided:                                                                              ##
+                                                 (keep diff. sessions running on 1 comp separate)  ##     ~ Character code translation: ASCII to EBCDIC                                                  ##
+                                              3. Providing log on/off from session                 ##                                   (ASCII can be sent across network - "Common format")             ##
+                                              4. (...other methods performed but minor...)         ##     ~ Data conversion:            Changing bit order (simple)                                      ##
+                                                                                                   ##                                   CR-CR/LF (controlling character terms & line formatting)         ##
+                                                                                                   ##                                   Convert int to float/float to int                                ##
+#####################################################################################################     ~ Data compression:           Reduces number of bits needed to transmit data                   ##
+                                                                                                   ##     ~ Data encryption:            Encrypt data for security purposes                               ##
+                                 +-----------------------+                                         ##                                   Encrypt (hash) passwords                                         ##
+                                 | +-------------------+ |                                         ##                                                                                                    ##
+                                 | | Application Layer | |                                         ##                                                                                                    ##
+                                 | +-------------------+ |                                         ########################################################################################################
+                                 +-----------------------+                                         ##                                                                                                    ##
+                                                                                                   ##                       +------------------------------------------------+                           ##
+- Serves as window for users & apps to access network services                                     ##                       | +--------------------------------------------+ |                           ##
+- Functions provided:                                                                              ##                       | | Exploring encapsulation & de-encapsulation | |                           ##
+    ~ Resource sharing                                                                             ##                       | +--------------------------------------------+ |                           ##
+    ~ Device redirection                                                                           ##                       +------------------------------------------------+                           ##
+    ~ Remote file access                                                                           ##                                                                                                    ##
+    ~ Remote printer access                                                                        ## - Each layer of OSI adds header to data (in de-encapsulation)                                      ##
+    ~ Network management                                                                           ## - Layers also create unit (encapsulation unit) used to send/receive data                           ##
+    ~ Directory services                                                                           ##                                                                                                    ##
+    ~ Email                                                                                        ## - Encapsulation:    Process of moving data DOWN OSI model (Application to Physical)                ##
+    ~ Instant messaging                                                                            ## - De-encapsulation: Process of moving data UP OSI model (Physical to Application)                  ##
+    ~ ...& others...                                                                               ##                                                                                                    ##
+                                                                                                   ## - Each layer has encapsulation unit that data (at that level) is known as:                         ##
+                                                                                                   ##                                                                                                    ##
+#####################################################################################################                                                                                                    ##
+                                                                                                   ## +------------------------------------------------------------------------------------------------+ ##
+                      +----------------------------------------------+                             ## |   Layer(s)   |                          Encapsulation Unit                                     | ##
+                      | +------------------------------------------+ |                             ## +--------------+---------------------------------------------------------------------------------+ ##
+                      | | Discovering how the layers work together | |                             ## | Application  |                Encapsulation Unit referred to as "data"                         | ##
+                      | +------------------------------------------+ |                             ## | Presentation |    (...as "data" hasn't been broken yet to be transmitted across network)       | ##
+                      +----------------------------------------------+                             ## |   Session    |                                                                                 | ##
+                                                                                                   ## +--------------+---------------------------------------------------------------------------------+ ##
+                         +------+       +--------------------------------------------------------+ ## |   Transport  |                   Converts "data" ----> "segments"                              | ##
+Apps on the OS           | Data |       | Each layer adds unique header giving info about data   | ## |              |     (...as breaks "data" up into small units in preparation for sending)        | ##
+                         +------+       +--------------------------------------------------------+ ## +--------------+---------------------------------------------------------------------------------+ ##
+                             |                                             Header holds info on... ## |   Network    |                   Converts "segments" ---> "packets"                            | ##
+                            \|/          +-------------------------------------------------------+ ## |              |              (adds header to help find it's destination)                        | ##
+Application              +-----------+   | What apps running on OS being used for this data      | ## +--------------+---------------------------------------------------------------------------------+ ##
+Layer                    | Data | AH |   +-------------------------------------------------------+ ## |  Data Link   |                    Converts "packets" ---> "frames"                             | ##
+                         +-----------+                                                             ## |              |   (adds header that contains physical address of next node along network &      | ##
+                             |                +--------------------------------------------------+ ## |              |                    error correction info (trailer))                             | ##
+                            \|/               | Order to identify & use data                     | ## +--------------+---------------------------------------------------------------------------------+ ##
+Presentation             +----------------+   | (e.g. encryption/compression/translation)        | ## |   Physical   |                      Converts "frames" ---> "bits"                              | ##
+Layer                    | Data | AH | PH |   +--------------------------------------------------+ ## +--------------+---------------------------------------------------------------------------------+ ##
+                         +----------------+                                                        ##                                                                                                    ##
+                             |                     +---------------------------------------------+ ##                                                                                                    ##
+                            \|/                    | How set up session between 2 processes      | ########################################################################################################
+Session                  +---------------------+   | that data applies to                        | ##
+Layer                    | Data | AH | PH | SH |   +---------------------------------------------+ ##
+                         +---------------------+                                                   ##
+                             |                          +----------------------------------------+ ##
+                            \|/                         | Specific protocol/process needed by    | ##
+Transport                +--------------------------+   | session layer to set up session with   | ##
+Layer                    | Data | AH | PH | SH | TH |   +----------------------------------------+ ##
+                         +--------------------------+                                              ##
+                             |                               +-----------------------------------+ ##
+                            \|/                              | Final physical destination of data| ##
+Network                  +-------------------------------+   +-----------------------------------+ ##
+Layer                    | Data | AH | PH | SH | TH | NH |                                         ##
+                         +-------------------------------+         +-----------------------------+ ##
+                             |                                     | Address of next node data   | ##
+                            \|/                                    | needs to be passed onto in  | ##
+Data Link   +------------+-------------------------------------+   | order to reach it's final   | ##
+Layer       | DL Trailer | Data | AH | PH | SH | TH | NH | DLH |   | destination & trailer that  | ##
+            +------------+-------------------------------------+   | has error-correction info   | ##
+                             |                                     +-----------------------------+ ##
+                            \|/                                                                    ##
+Physical    +------------+-------------------------------------+   +-----------------------------+ ##
+Layer       | DL Trailer | Data | AH | PH | SH | TH | NH | DDH |   | All info then converted into| ##
+            +--------------------------------------------------+   | binary & put on media being | ##
+                                                                   | used to transmit data       | ##
+                                                                   +-----------------------------+ ##
+                                                                                                   ##
+                                                                                                   ##
++------------------------------------------------------------------------------------------------+ ##
+| At every layer, what was added in the layer before (the header) becomes part of the data being | ##
+| transmitted - Data becoming larger at each level called "overhead"                             | ##
+|                                                                                                | ##
+| For example,                                                                                   | ##
+|     When getting to the Presentation Layer, the Application Header becomes part of the data    | ##
+|     that is being transmitted...                                                               | ##
+|     When reaching the Session Layer, the Presentation Header also becomes part of that header  | ##
+|                                                                                                | ##
+| The Data Link Header NEVER becomes part of the data!                                           | ##
+| Try and keep headers as small as possible!                                                     | ##
++------------------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
++------------------------------------------------------------------------------------------------+ ##
+| During de-encapsulation of the OSI Model, a header is added at each level until the data is    | ##
+| converted into binary and transmitted across network...                                        | ##
+|                                                                                                | ##
+| When data reaches its destination, the NIC on the receiving computer intercepts data & starts  | ##
+| passing it back UP the OSI Model (encapsulation)...                                            | ##
+|                                                                                                | ##
+| Now at each layer, the header that was previously added at that level is now removed           | ##
+| Computer removes header which tells it info it needs to know about data for next layer         | ##
+| For example,                                                                                   | ##
+|     Peeling off Transport Header will tell computer which specific protocols are needed to set | ##
+|     up the session at the Session Layer                                                        | ##
++------------------------------------------------------------------------------------------------+ ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

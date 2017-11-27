@@ -1,0 +1,93 @@
+																								   ##
+										+-------------------------+							       ##
+										| +---------------------+ |								   ##
+										| | TCP/IP Applications | |								   ##
+										| +---------------------+ |								   ##
+										+-------------------------+								   ##
+																								   ##
+																								   ##
+								    +---------------------------------+							   ##
+							        | ~ INTRODUCTION TO TCP AND UDP ~ |							   ##
+							        +---------------------------------+							   ##
+							        															   ##
+							        															   ##
+- TCP: Where have to get data back to client in specific order 									   ##
+	   So client requests data and server has to serve it back in correct order i.e. song 		   ##
+- UDP: User Datagram Protocol 																	   ##
+	   Where it does not matter as to what order the packets are fed back to the client 		   ##
+ 																								   ##
+- Ethernet frame - Ethernet part (MAC Addresses & CRC) = IP Packet 								   ##
+- IP Packet - IP part (logical addresses) = TCP Segment 										   ##
+- TCP Segment has: 																				   ##
+	+ Port number to 																			   ##
+	+ Port number from 																			   ##
+	+ Sequence number 																			   ##
+	+ ACK (lots of stuff i.e. what part of handshake process in, status of receiving system) 	   ##
+ 																								   ##
+- TCP = Connection-oriented protocol (going to ensure that data gets from 1 machine to other) 	   ##
+ 																						           ##
+		+--------+																+--------+ 		   ##
+		|        | ------------------------ ~ 1 ~ ---------------------------->	|        | 		   ##
+		|        |																|        | 		   ##
+		| CLIENT | <----------------------- ~ 2 ~ -----------------------------	| SERVER | 		   ##
+		|        |																|        | 		   ##
+		|        | ------------------------ ~ 3 ~ ---------------------------->	|        | 		   ##
+		+--------+																+--------+ 		   ##
+ 																								   ##
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+ 							   ##
+( 1. Client sends SYN to Server 								    ( 							   ##
+)    SYN ensures that the whole handshaking process works correctly )        After all 3 processes ##
+(    Before this state, Server is 'Listening'						(        now have a legit 	   ##
+) 2. Server responds with SYN/ACK 									) ------ TCP connection 	   ##
+(    Lots of stuff done on Client...								( 							   ##
+) 3. Client sends back ACK											) 							   ##
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+ 							   ##
+ 																								   ##
+ 																								   ##
+- When closing connection as ALL data has been sent and the connection is no longer needed... 	   ##
+ 																								   ##
+		+--------+																+--------+ 		   ##
+		|        | ------------------------ ~ 1 ~ ----------------------------> |        | 		   ##
+		|        |																|        | 		   ##
+		| CLIENT | <----------------------- ~ 2 ~ -----------------------------	| SERVER | 		   ##
+		|        |																|        |		   ##
+		|        | ------------------------ ~ 3 ~ ---------------------------->	|        | 		   ##
+		+--------+																+--------+ 		   ##
+																								   ##
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+ 								   ##
+( 1. Client sends a FIN statement over to Server              (									   ##
+) 2. Server responds with FIN/ACK to Client                   )									   ##
+( 3. Client closes connection with ACK						  (									   ##
++~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+									   ##
+																								   ##
+- UDP (i.e. DHCP) Datagram has: 																			   ##
+	+ Port number from 																			   ##
+	+ Port number to 																			   ##
+	+ Length of data 																			   ##
+	+ Checksum to verify data 																	   ##
+ 																								   ##
+- UDP = Connectionless (don't have to worry about ACKs etc., as data just fired over in any order) ##
+																								   ##
+- UDP Pros: 																					   ##
+	+ Fast																						   ##
+	+ Barely any overhead 																		   ##
+
+
+									+-------------------+
+									| ~ ICMP AND IGMP ~ |
+									+-------------------+
+
+
+- ICMP & IGMP:
+	+ Used for simplistic tasks i.e. verifying computer status
+	+ Works at IP Layer of TCP/IP Model not Transport Layer
+	+ Example of ICMP is Ping or ARP
+
+- ICMP (Internet Conrol Message Protocol) Packet has:
+	+ Type (i.e. "Yes, I hear you")
+	+ Checksum to verify
+	+ NO port numbers
+	+ NO data
+
+- IGMP (Internet Group Management Protocol):
+	+ 

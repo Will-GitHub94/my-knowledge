@@ -1,0 +1,57 @@
+                                                                                                   ##
+                              +-------------------------------------+                              ##
+                              | +---------------------------------+ |                              ##
+                              | | Role of protocols in networking | |                              ##
+                              | +---------------------------------+ |                              ##
+                              +-------------------------------------+                              ##
+                                                                                                   ##
+- Modern systems use layering technique                                                            ##
+- Different protocols used at different levels to handle specific tasks (protocol family/suite):   ##
+      ~ IPX/SPX                                                                                    ##
+      ~ AppleTalk                                                                                  ##
+      ~ TCP/IP                                                                                     ##
+                                                                                                   ##
+- At varying layers of OSI model, a few fundamental services need to be addressed:                 ##
+      ~ Data formats:    Break digital format into bitstrings, which are divided into fields that  ##
+                         carry info                                                                ##
+      ~ Address formats: Define standard for identifying sending & receiving hosts                 ##
+      ~ Address mapping: 1 address scheme mapped to another                                        ##
+                         (i.e. IP to MAC)                                                          ##
+      ~ Routing:         Transfers info from 1 network to another                                  ##
+        (at layer 3)                                                                               ##
+      ~ Error Detection: Detects errors on unreliable networks                                     ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################
+                                                                                                   ##
+                            +-----------------------------------+                                  ##
+                            | +-------------------------------+ |                                  ##
+                            | | Connection vs. Connectionless | |                                  ##
+                            | +-------------------------------+ |                                  ##
+                            +-----------------------------------+                                  ##
+
++-------------------------+
+| ~ Connection oriented ~ |
++-------------------------+
+
+- TCP
+- Uses system to provide reliable delivery of traffic
+- Utilises system (three-way handshake) to establish connections
+                          /|\
+                           |
++-----------------------------------------------------------------------------------------------+
+|                                                                                               |
+|    +---------+                            +---------+  - Before connection considered         |
+|    |         | <------- SYND/ACK -------- |         |    established, both hosts send &       |
+|    | Host #1 |                            | Host #2 |    receive send (SYND), & an ACK packet |
+|    | (client)| ---------- ACK ----------> | (server)|                                         |
+|    +---------+                            +---------+  - Technically, could be 4 separate     |
+|                                                          messages...                          |
+|                                                                                               |
+|                                                        - ...but 1 of these transmissions can  |
+|                                                          include both send & ACK (SYND/ACK)   |
+|                                                          packet hence having three-way        |
+|                                                          handshake                            |
+|
+|
+|

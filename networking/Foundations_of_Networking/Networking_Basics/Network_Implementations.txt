@@ -1,0 +1,41 @@
+                                                                                                   ##                                                                                                    ##
+        +---------------------------------------------------------------------------------+        ##                               +---------------------------------------+                            ##
+        | +-----------------------------------------------------------------------------+ |        ##                               | +-----------------------------------+ | (specialised tech)         ##
+        | | Understanding Wide Area Networks (WANs) & Metropolitan Area Networks (MANs) | |        ##                               | | Introducing SCADA/ICS & medianets | |                            ##
+        | |                   (& Exploring LANs, WLANs, & PANs)                         | |        ##                               | +-----------------------------------+ |                            ##
+        | +-----------------------------------------------------------------------------+ |        ##                               +---------------------------------------+                            ##
+        +---------------------------------------------------------------------------------+        ##                                                                                                    ##
+                                                                                                   ## +---------------+                                                                                  ##
+                                                                                                   ## | ~ SCADA/ICS ~ |                                                                                  ##
++------------------------------------------------------------------------------------------------+ ## +---------------+                                                                                  ##
+|                    ~ BIG ~                    |                  ~ SMALL ~                     | ##                                                                                                    ##
++-----------------------------------------------+------------------------------------------------+ ## - SCADA:  Supervisory Control And Data Acquisition                                                 ##
+|          WAN          |          MAN          |      LAN      |      WLAN      |      PAN      | ## - ICS:    Industrial Control System                                                                ##
++-----------------------+-----------------------+---------------+----------------+---------------+ ##                                                                                                    ##
+| - 1 large (or group   | - Same as WAN but     | - Twisted pair| - LAN but      | - Wireless    | ## - Refer to networks & tech used to control industrial apps                                         ##
+|   of smaller) cover   |   covers smaller area |   cabling to  |   wireless     | - Defined by  | ## - SCADA = Subset of ICS:                                                                           ##
+|   large geographic    |   (around 50km)       |   connect     | - IEEE 802.11ac|   IEEE 802.15 | ##     ~ SCADA describes systems that span large geographic areas                                     ##
+|   area                |                       |   comps       |   (standard    |   standard    | ##     ~ E.g: Pipelines, Power distribution, water/sewage management, & streetlights                  ##
+| - Routers & switches  |                       | - Fiber optic |    for WiFi)   | - BlueTooth/  | ##                                                                                                    ##
+|   used to connect up  |                       |   to connect  | - IEEE 802.11ax|   Infrared    | ## - ICS is more generic in use:                                                                      ##
+|   network             |                       |   switches    |   (being dev'd)|   for connect | ##     ~ Normally refers to small scale systems                                                       ##
+| - Called 'Enterprise' |                       | - CAT 6/6A    |                |   (common)    | ##     ~ E.g: Industrial automation, control systems for power plants, control systems for factories  ##
+|   Network' when owned |                       |   cabling in  |                | - Range of    | ##                                                                                                    ##
+|   by 1 organisation   |                       |   current LANs|                |   < 30ft      | ##                                                                                                    ##
+|                       |                       | - Nodes tied  |                |               | ##                                                                                                    ##
+|                       |                       |   together    |                |               | ## +---------------+                                                                                  ##
+|                       |                       |   with hubs/  |                |               | ## | ~ Medianets ~ |                                                                                  ##
+|                       |                       |   switches    |                |               | ## +---------------+                                                                                  ##
++-----------------------+-----------------------+---------------+----------------+---------------+ ##                                                                                                    ##
+                                                                                                   ## - Networks optimised for distributing large video apps & similar tech                              ##
++--------------+                                                                                   ## - E.g. Hulu, Netflix, WebEx, & GoToMeeting                                                         ##
+| PAN examples |                                                                                   ## - Uses smart bandwidth detection systems (to handle large scale video apps):                       ##
++--------------+                                                                                   ##     ~ Allow medianets to adjust higher/lower bandwidth devices                                     ##
+                                                                                                   ##     ~ Provides smooth video transmission on any platform                                           ##
+- Wireless peripherals to connect to computer                                                      ##                                                                                                    ##
+- Connect to car audio via BlueTooth                                                               ##                                                                                                    ##
+- Wireless handsfree in car                                                                        ########################################################################################################
+- Apple Watch to connect to smartphone                                                             ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

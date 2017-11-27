@@ -1,0 +1,103 @@
+                                                                                                   ##                                                                                                    ##
+                                            +----------------------+                               ##                                             +---------------------+                                ##
+                                            | +------------------+ |                               ##                                             | +-----------------+ |                                ##
+                                            | | Introducing IPv6 | |                               ##                                             | | IPv6 Subnetting | |                                ##
+                                            | +------------------+ |                               ##                                             | +-----------------+ |                                ##
+                                            +----------------------+                               ##                                             +---------------------+                                ##
+                                                                                                   ##                                                                                                    ##
+- Needed as IPv4 designed with 32-bit address system in mind                                       ## - ISPs normally give IPv6 address with minimum of /48 (48-bit) prefix                              ##
+  (Limited to 4,294,967,296 addresses - too small)                                                 ##   (RFC 4291 recommends at least /64 though - loopback is exception which uses /128)                ##
+- Is a 128-bit address system                                                                      ## - IPv6 addresses with prefix (all IPv6 subnets presented in this manor):                           ##
+  (expressed as 3.4 * 10^38)                                                                       ##     ~ 3ffd:2093:c003::/48                                                                          ##
+- Designed...                                                                                      ##     ~ 3ffd:2093:c003:0000::/64 (RFC recommendation)                                                ##
+    ~ For efficient address allocation                                                             ##                                                                                                    ##
+    ~ To reflect topology of internet                                                              ## - Site ID:                                                                                         ##
+    ~ To accommodate 64-bit MAC                                                                    ##       ~ 16-bits AFTER prefix of IPv6                                                               ##
+- Allows flexibility in designing:                                                                 ##       ~ Gives 65,536 possible IDs                                                                  ##
+    ~ Hierarchical addressing                                                                      ##       ~ Add Site ID to original prefix                                                             ##
+    ~ Hierarchical routing                                                                         ##         (e.g. 64 + 16 = /80 prefix)                                                                ##
+- IPv6 described in RFC 3516                                                                       ##       ~ This (^^) will leave 48-bits for Host IDs                                                  ##
+                                                                                                   ##         (possible 281,474,976,701,656 Host IDs)                                                    ##
+                                                                                                   ##                                                                                                    ##
+#####################################################################################################                                                                                                    ##
+                                                                                                   ########################################################################################################
+                              +-------------------------------+                                    ##                                                                                                    ##
+                              | +---------------------------+ |                                    ##                                       +--------------------------+                                 ##
+                              | | IPv6 addressing structure | |                                    ##                                       | +----------------------+ |                                 ##
+                              | +---------------------------+ |                                    ##                                       | | Reserved IPv6 ranges | |                                 ##
+                              +-------------------------------+                                    ##                                       | +----------------------+ |                                 ##
+                                                                                                   ##                                       +--------------------------+                                 ##
+- 128-bit divided into 16-bit boundaries/sections                                                  ##                                                                                                    ##
+- Each 16-bit section represented by 4-digit hex                                                   ## - Unspecified IPv6 Address:                                                                        ##
+  (each hex digit represented by 4-bits (e.g. F = 1111))                                           ##     ~ Shown as 0:0:0:0:0:0:0:0 or ::                                                               ##
+- Each block separated with colon (:)                                                              ##     ~ Indicates absence of address                                                                 ##
+- Can be simplified under conditions:                                                              ##     ~ Used as source address for packets to verify uniqueness of address                           ##
+    ~ If boundary has > 1 leading (left-most) 0s, then 0s can be removed                           ##     ~ Never assigned to interface/used as destination                                              ##
+    ~ When removing leading 0s, at least 1 digit must be left                                      ##                                                                                                    ##
+      (so if section is 0000, becomes 0...or...00ff becomes ff)                                    ## - Loopback Address:                                                                                ##
+                                                                                                   ##     ~ Shown as 0:0:0:0:0:0:0:1 or ::1                                                              ##
+                                                                                                   ##                                                                                                    ##
+##################################################################################################### - Compatibility Addresses:                                                                         ##
+                                                                                                   ##     ~ Aid migration from IPv4 to IPv6                                                              ##
+                            +-------------------------------------+                                ##     ~ Allow coexistence of IPv4 & IPv6 host on same network                                        ##
+                            | +---------------------------------+ |                                ##                                                                                                    ##
+                            | | Gateways & Subnet Masks in IPv6 | |                                ##     ~ IPv4-Compatible Addresses:                                                                   ##
+                            | +---------------------------------+ |                                ##         > Shown as 0:0:0:0:0:0:w.x.y.z or ::w.x.y.z                                                ##
+                            +-------------------------------------+                                ##           (w.x.y.z represents PUBLIC IPv4 address - w.x make 1 boundary & y.z make the other)      ##
+                                                                                                   ##         > Only used by IPv6/IPv4 nodes to communicate using IPv6                                   ##
++--------------+                                                                                   ##         > IPv6/IPv4 nodes support both IPv4 & IPv6 protocols                                       ##
+| ~ Gateways ~ |                                                                                   ##           (Dual-IP stack node)                                                                     ##
++--------------+                                                                                   ##         > IPv6 traffic encapsulated with IPv4 header...                                            ##
+                                                                                                   ##           ...makes possible to send packet to destination using IPv4 infrastructure                ##
+- Work same as in IPv4 BUT...                                                                      ##                                                                                                    ##
+    ~ 128-bits long                                                                                ##     ~ IPv4-Mapped Addresses:                                                                       ##
+    ~ Represented in IPv6 format                                                                   ##         > Shown as 0:0:0:0:0:ffff:w.x.y.z or ::ffff:w.x.y.z                                        ##
+    ~ Requires DHCPv6 (if obtaining gateway automatically)                                         ##         > Represent IPv4-only node to IPv6 node                                                    ##
+                                                                                                   ##         > Never used as source/destination address for IPv6 packet                                 ##
+                                                                                                   ##                                                                                                    ##
+                                                                                                   ##     ~ 6to4 Address:                                                                                ##
++-----------------+                                                                                ##         > Communicate between 2 nodes both running IPv4 & IPv6 over IPv4 routing infrastructure    ##
+| ~ Subnet Mask ~ |                                                                                ##         > Formed by combining 2002::/16 with 32 bits of PUBLIC IPv4 address of node...             ##
++-----------------+                                                                                ##           ...forms 48-bit prefix to define connection on IPv4 routing infrastructure               ##
+                                                                                                   ##         > 6to4 tunnelling Described in RFC 3056                                                    ##
+- Different to IPv4:                                                                               ##         > Tunnelling...                                                                            ##
+    ~ Simply tell computer what prefix is being used instead of listing actual Subnet Mask         ##             # Is process of establishing connection through public network                         ##
+- Cannot configure WINs as is IPv4 option ONLY                                                     ##             # Connections look like point-to-point connection to devices on either end of tunnel   ##
+                                                                                                   ##               (but...it is not actually point-to-point)                                            ##
+                                                                                                   ##                                                                                                    ##
+#####################################################################################################     ~ ISATAP Address:                                                                              ##
+                                                                                                   ##         > Used between 2 nodes running both IPv4 & IPv6 over IPv4 routing infrastructure           ##
+                    +----------------------------------------------+                               ##         > Uses locally administered interface ID ::0:5efe:w.x.y.z                                  ##
+                    | +------------------------------------------+ |                               ##           (w.x.y.z can be ANY UNICAST IPv4 address - includes either PUBLIC & PRIVATE)             ##
+                    | | IPv6 link local, 6to4 tunnelling, & 4to6 | |                               ##         > Interface ID can be combined with any valid 64-bit IPv6 address, including:              ##
+                    | +------------------------------------------+ |                               ##             # Link-local address prefix (fe80::/64)                                                ##
+                    +----------------------------------------------+                               ##             # Site-local prefixes                                                                  ##
+                                                                                                   ##             # Global prefixes                                                                      ##
+- IPv6 Global Unicast Addresses:                                                                   ##                                                                                                    ##
+    ~ Equivalent to PUBLIC IPv4 addresses                                                          ##     ~ Teredo Address:                                                                              ##
+    ~ Are globally routable                                                                        ##         > Uses prefix 3ffe:831f::/32                                                               ##
+    ~ Are reachable on IPv6 Internet                                                               ##         > Represents host when using auto tunnelling mechanisms                                    ##
+    ~ GUA structures defined in RFC 3587                                                           ##         > Teredo addresses used to encode IPv4 address of Teredo server (after 1st 32-bits)        ##
+                                                                                                   ##                                                                                                    ##
+- IPv6 Link-Local Addresses:                                                                       ##                                                                                                    ##
+    ~ Used when communicating with neighbouring nodes on single-link network                       ########################################################################################################
+      (Single-link = No router & limited to local segments)                                        ##                                                                                                    ##
+    ~ Cannot communicate with hosts if on separate links                                           ##                                       +--------------------+                                       ##
+    ~ Equivalent to APIPA addresses                                                                ##                                       | +----------------+ |                                       ##
+    ~ Is required for Neighbour Discovery processes                                                ##                                       | | Dual IP Stacks | |                                       ##
+      (NDP = Allows computer to discover all others directly connected to it (it's neighbours))    ##                                       | +----------------+ |                                       ##
+    ~ Auto configured if no other address on network                                               ##                                       +--------------------+                                       ##
+    ~ Always begins with 'fe80'                                                                    ##                                                                                                    ##
+    ~ IPv6 routers never forward link-local traffic beyond link                                    ## - Is network that has both IPv6 & IPv4 enabled on same node                                        ##
+                                                                                                   ## - Important to let routers know of this...                                                         ##
+- IPv6 Site-Local Addresses:                                                                       ##   ...as routers are 1st nodes on network to receive outside traffic                                ##
+    ~ Equivalent to PRIVATE IPv4 addresses                                                         ##                                                                                                    ##
+      (cannot be used to connect to internet directly)                                             ##                                                                                                    ##
+    ~ Can only be assigned through address config                                                  ########################################################################################################
+      (NOT auto configured)                                                                        ##
+    ~ Always starts with 'fec0::/10'                                                               ##
+    ~ After 1st 10 bits, there is 54-bit subnet identifier                                         ##
+      (Prefix = 10 + 54 = /64)                                                                     ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

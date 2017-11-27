@@ -1,0 +1,44 @@
+
+Main numbering systems are:
+- Hexadecimal (base 16)
+- Decimal     (base 10)
+- Octal       (base 8)
+- Binary      (base 2)
+
+If the 'base' number is referred to as 'n' (e.g. a base n numbering system)...
+The maximum value allowed for any of the units is 'n - 1'
+
+For example,
+
+HEX is a base SIXTEEN (16) system so the maximum value allowed is FIFTEEN (F)
+DECIMAL is a base TEN (10) system so the maximum value allowed is NINE (9)
+OCTAL is a base EIGHT (8) system so the maximum value allowed is SEVEN (7)
+BINARY is a base TWO (2) system so the maximum value allowed is ONE (1)
+
+
+Value '255' in different systems... (Anything to the power 1 (^0) is 1)
+
+HEX                                     OCTAL
++---------------------------+           +-----------------------+
+| 16^3 | 16^2 | 16^1 | 16^0 |           | 8^3 | 8^2 | 8^1 | 8^0 |
++---------------------------+           +-----------------------+
+|   0  |   0  |  F   |   F  |           |  0  |  3  |  7  |  7  |
++---------------------------+           +-----------------------+
+(16 * 15) + (1 * 15) = 255              (64 * 3) + (8 * 7) + (1 * 7) = 255
+
+
+DECIMAL                                 BINARY
++---------------------------+           +-----------------------------------------------+
+| 10^3 | 10^2 | 10^1 | 10^0 |           | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
++---------------------------+           +-----------------------------------------------+
+|   0  |   2  |   5  |   5  |           |  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |
++---------------------------+           +-----------------------------------------------+
+(100 * 2) + (10 * 5) + (1 * 5) = 255    (128 * 1) + (64 * 1) + (32 * 1) + (16 * 1) + (8 * 1) + (4 * 1) + (2 * 1) + (1 * 1) = 255
+
++------------------------------------------+
+| OCTAL is now deprecated in favour of HEX |
++------------------------------------------+
+
++------------------------------------------------+
+| 255 is an 8-bit BINARY number so 255 is a BYTE |
++------------------------------------------------+

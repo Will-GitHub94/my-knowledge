@@ -1,0 +1,136 @@
+                                                                                                   ##                                                                                                    ##
+                              +------------------------------------+                               ##                                    +------------------------+                                      ##
+                              | +--------------------------------+ |                               ##                                    | +--------------------+ |                                      ##
+                              | | Understanding the TCP/IP suite | |                               ##                                    | |  Application Layer | |                                      ##
+                              | +--------------------------------+ |                               ##                                    | +--------------------+ |                                      ##
+                              +------------------------------------+                               ##                                    +------------------------+                                      ##
+                                                                                                   ##                                                                                                    ##
++---------------------------------------------------------------------------+                      ## - Defines protocols, services, & processes that allow programs & users to interface with network   ##
+| Group of protocols designed to work together to send data across network  |                      ## - Defines how programs interface with Transport Layer services to use network                      ##
+| (Transmission Control Protocol (TCP)/Internet Protocol (IP))              |                      ##                                                                                                    ##
++---------------------------------------------------------------------------+                      ## - Common protocols:                                                                                ##
+                                                                                                   ##     ~ HTTP                                                                                         ##
+- Also contains large number of protocols able to carry many different network functions           ##     ~ Telnet:                           Sends passwords in clear text                              ##
+- Only protocol used by Internet                                                                   ##     ~ FTP                                                                                          ##
+- Nearly all networks use TCP/IP as main transmission protocol                                     ##     ~ TFTP (Trivial FTP):               FTP but doesn't have error-checking & acknowledgements     ##
+                                                                                                   ##     ~ SNMP (Simple Network Management): Allows network admins to remotely manage comps on network  ##
+- Open protocol suite: Free for all to use                                                         ##     ~ DNS                                                                                          ##
+                       New protocols can be freely developed as needed                             ##     ~ SMTP                                                                                         ##
+                                                                                                   ##     ~ X Windows:                        Used by Unix & Linux OS to generate GUI                    ##
+                                                                                                   ##                                                                                                    ##
+#####################################################################################################                                                                                                    ##
+                                                                                                   ########################################################################################################
+                               +----------------------------------+                                ##                                                                                                    ##
+                               | +------------------------------+ |                                ##                                       +---------------------+                                      ##
+                               | | Introducing the TCP/IP Model | |                                ##                                       | +-----------------+ |                                      ##
+                               | +------------------------------+ |                                ##                                       | | Transport Layer | |                                      ##
+                               +----------------------------------+                                ##                                       | +-----------------+ |                                      ##
+                                                                                                   ##                                       +---------------------+                                      ##
+- Created by Department of Defence in 1970s                                                        ##                                                                                                    ##
+- Reduced version of OSI Model BUT based around TCP/IP suite...                                    ## - Provides comms session management between host computers                                         ##
+  ...so protocols in TCP/IP suite will match up with layers of TCP/IP Model                        ## - Defines level of service & status of connections used when transporting data                     ##
+                                                                                                   ##                                                                                                    ##
+                                                                                                   ## - Common protocols:                                                                                ##
++-------------------+ -----------+                                                                 ##     ~ TCP                                                                                          ##
+| Application Layer |            |                                                                 ##     ~ UDP (User Datagram Protocol): TCP but doesn't have error-checking & acknowledgements etc.    ##
++-------------------+            |                                                                 ##     ~ RTP (Real-Time Protocol):     Used by VoIP (& other services) that allow real-time comms     ##
+|  Transport Layer  |            |------------------- All TCP/IP protocols located on these layers ##                                     between users                                                  ##
++-------------------+            |                                                                 ##                                                                                                    ##
+|  Internet Layer   |            |                                                                 ##                                                                                                    ##
++-------------------+ -----------+                                                                 ########################################################################################################
+|  Network Access/  |                                                                              ##                                                                                                    ##
+| Network Interface |--------------------------- Protocols here not part of TCP/IP suite           ##                                        +--------------------+                                      ##
+|      Layer        |                            (...are tech specific protocols used for specific ##                                        | +----------------+ |                                      ##
++-------------------+                             comms tech (e.g. Ethernet 802.11))               ##                                        | | Internet Layer | |                                      ##
+                                                                                                   ##                                        | +----------------+ |                                      ##
+- Each of these layers corresponds to 1+ layer in OSI Model                                        ##                                        +--------------------+                                      ##
+                                                                                                   ##                                                                                                    ##
++-------------------------+-------------------------------------------------------------+          ## +-------------------------------------------------------------------------------------------+      ##
+|          Layer          |                  Protocols (the main ones)                  |          ## | Packages data into packets (IP datagrams)                                                 |      ##
++---------------------------------------------------------------------------------------+          ## | Header of packet contains source & destination info needed to move packet through network |      ##
+|                         | +------+ +-----+ +------+ +-----+ +------+ +-----+ +------+ |          ## | Uses this info to forward packets between hosts across network                            |      ##
+|                         | |      | |     | |      | |     | |      | |     | |      | |          ## +-------------------------------------------------------------------------------------------+      ##
+|       Application       | | SMTP | | FTP | | HTTP | | DNS | | TFTP | | RIP | | SNMP | |          ##                                                        /|\                                         ##
+|                         | |      | |     | |      | |     | |      | |     | |      | |          ##                                                         |                                          ##
+|                         | +------+ +-----+ +------+ +-----+ +------+ +-----+ +------+ |          ## Basically, performs routing of IP packets --------------+                                          ##
+|           /|\           |   /|\      /|\     /|\    /|\ /|\   /|\      /|\     /|\    |          ##                                                                                                    ##
++------------|------------+----|--------|-------|------|---|-----|--------|-------|-----+          ## - Common protocols:                                                                                ##
+|           \|/           |   \|/      \|/     \|/    \|/ \|/   \|/      \|/     \|/    |          ##     ~ IP:                                       Find best route through network & move packets     ##
+|                         | +---------------------------+ +---------------------------+ |          ##                                                 down that route                                    ##
+|                         | |                           | |                           | |          ##     ~ ICMP (Internet Control Message Protocol): Send out control messages across internet that IP  ##
+|        Transport        | |            TCP            | |            UDP            | |          ##                                                 uses to find routes etc.                           ##
+|                         | |                           | |                           | |          ##                                                 Used by:                                           ##
+|                         | +---------------------------+ +---------------------------+ |          ##                                                     > Ping:       Get replies back from nodes to   ##
+|           /|\           |              /|\                   /|\                      |          ##                                                                   assure the node is up            ##
++------------|------------+---------------|---------------------|-----------------------+          ##                                                     > Traceroute: Get reply back from each node    ##
+|           \|/           |              \|/                   \|/ +------------------+ |          ##                                                                   along route to destination &     ##
+|                         | +--------------------------------------|  IGMP  |   ICMP  | |          ##                                                                   displays each node location so   ##
+|                         | |                                      +------------------| |          ##                                                                   can trace entire path packet     ##
+|         Internet        | |--------------------+       IP                           | |          ##                                                                   needs to take                    ##
+|                         | |   ARP   |   RARP   |                                    | |          ##     ~ ARP (Address Resolution Protocol):        Used by IP to take logical address (IP Address) &  ##
+|                         | +---------------------------------------------------------+ |          ##                                                 find physical address (MAC Address) that matches   ##
+|           /|\           |     /|\        /|\                 /|\             /|\      |          ##                                                 it if not already known                            ##
++------------|------------+------|----------|-------------------|---------------|-------+          ##     ~ RARP (Reverse ARP):                       Opposite to ARP                                    ##
+|           \|/           |     \|/        \|/                 \|/             \|/      |          ##                                                 Used to determine logical address (IP Address)     ##
+|                         | +----------+ +------------+ +---------------+ +-----------+ |          ##                                                 from knowing the physical address (MAC Address)    ##
+|     Network Access/     | |          | |   802.11   | |     Frame     | |           | |          ##                                                                                                    ##
+|    Network Interface/   | | Ethernet | |  Wireless  | |     Relay     | |    ATM    | |          ##                                                                                                    ##
+|          Link           | |          | |     LAN    | |               | |           | |          ########################################################################################################
+|                         | +----------+ +------------+ +---------------+ +-----------+ |          ##                                                                                                    ##
++-------------------------+-------------------------------------------------------------+          ##                               +--------------------------------------------+                       ##
+                                                                                                   ##                               | +----------------------------------------+ |                       ##
+                                                                                                   ##                               | | Network Access/Network Interface Layer | |                       ##
+#####################################################################################################                               | +----------------------------------------+ |                       ##
+                                                                                                   ##                               +--------------------------------------------+                       ##
+                   +------------------------------------------------+                              ##                                                                                                    ##
+                   | +--------------------------------------------+ |                              ## - Specifies how data physically sent through network                                               ##
+                   | | Comparing the TCP/IP Model & the OSI Model | |                              ## - Specifies how bits are electronically (or photonically in case of copper/fiber optic media)      ##
+                   | +--------------------------------------------+ |                              ##   signalled by hardware                                                                            ##
+                   +------------------------------------------------+                              ## - Defines how hardware devices interfaces with network mediums (e.g. coaxial cable, optical,       ##
+                                                                                                   ##                                                                 & twisted pair cable)              ##
++----------------------------------------+              +----------------------------------------+ ##                                                                                                    ##
+|                                        |              |                                        | ## - Standards defined:                                                                               ##
+|                                        |              |                                        | ##     ~ Ethernet:     Primary standard to send data across LAN                                       ##
+|                                        |              |            Application Layer           | ##     ~ Token Ring:   Older standard of Ethernet (fallen out of use)                                 ##
+|                                        |              |                                        | ##     ~ FDDI:         Fiber optic standard used for WAN environments (mostly)                        ##
+|                                        |              |                                        | ##     ~ X.25:         Much older standard                                                            ##
+|                                        |              +----------------------------------------+ ##                     1 of first used for WAN                                                        ##
+|                                        |              |                                        | ##     ~ Frame Relay:  Used in WAN (sometimes)                                                        ##
+|              Application               |              |                                        | ##     ~ RS-232:       Defines serial interfaces (& comm ports) used on regular computer              ##
+|                 Layer                  |              |            Presentation Layer          | ##     ~ V.35:         Used in relation to dial-up networking                                         ##
+|                                        |              |                                        | ##                                                                                                    ##
+|                                        |              |                                        | ##                                                                                                    ##
+|                                        |              +----------------------------------------+ ########################################################################################################
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
+|                                        |              |              Session Layer             | ##
++----------------------------------------+              |                                        | ##
+|                                        |              |                                        | ##
+|                                        |              +----------------------------------------+ ##
+|                                        |              |                                        | ##
+|               Transport                |              |                                        | ##
+|                 Layer                  |              |             Transport Layer            | ##
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
++----------------------------------------+              +----------------------------------------+ ##
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
+|                                        |              |              Network Layer             | ##
+|                Internet                |              |                                        | ##
+|                 Layer                  |              |                                        | ##
+|                                        |              +----------------------------------------+ ##
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
++----------------------------------------+              |             Data Link Layer            | ##
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
+|                                        |              +----------------------------------------+ ##
+|    Network Access/Network Interface    |              |                                        | ##
+|                 Layer                  |              |                                        | ##
+|                                        |              |              Physical Layer            | ##
+|                                        |              |                                        | ##
+|                                        |              |                                        | ##
++----------------------------------------+              +----------------------------------------+ ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

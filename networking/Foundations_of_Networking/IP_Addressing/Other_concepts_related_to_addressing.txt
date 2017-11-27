@@ -1,0 +1,74 @@
+                                                                                                   ##                                                                                                    ##
+                                        +-----------+                                              ##                                           +-------------+                                          ##
+                                        | +-------+ |                                              ##                                           | +---------+ |                                          ##
+                                        | | Ports | |                                              ##                                           | | Packets | |                                          ##
+                                        | +-------+ |                                              ##                                           | +---------+ |                                          ##
+                                        +-----------+                                              ##                                           +-------------+                                          ##
+                                                                                                   ##                                                                                                    ##
+- Serves as endpoint in OS for different types of comms                                            ## - Are formatted units of data carried across packet switched network                               ##
+- Associated with IP of host & protocol type of comms                                              ## - Several benefits:                                                                                ##
+- Identified by Port Numbers (16-bit)                                                              ##     ~ Bandwidth of comms link can be shared across multiple devices                                ##
+- Used by Transport & Session layers                                                               ##     ~ Each packet able to find its own way across network...                                       ##
+                                                                                                   ##       ...meaning they are easily routed if specific link goes down                                 ##
+- 3 categories:                                                                                    ##                                                                                                    ##
+    ~ Well-known ports:      Port address range: 0 - 223                                           ## - 2 parts:                                                                                         ##
+                             Used to identify specific service types                               ##     1. Control info in header:    Provides data needed to deliver packet safely                    ##
+                             Assigned by Internet Assigned Numbers Authority (IANA)                ##                                   Includes:                                                        ##
+                             Only used for standards defined protocols & services                  ##                                       > Source & destination addresses                             ##
+    ~ Registered ports:      Port address range: 1024 - 49151                                      ##                                       > Error detection codes                                      ##
+                             Assigned by IANA BUT can be purchased by anyone                       ##                                       > Sequencing info                                            ##
+    ~ Dynamic/private ports: Port address range: 49152 - 65535                                     ##     2. Payload/user info in body: Contains actual data being transmitted                           ##
+                             Assigned by OS                                                        ##                                                                                                    ##
+                                                                                                   ##                                                                                                    ##
+                                                                                                   ########################################################################################################
+#####################################################################################################
+                                                                                                   ##
+                                      +-------------------+                                        ##
+                                      | +---------------+ |                                        ##
+                                      | | Remote Access | |                                        ##
+                                      | +---------------+ |                                        ##
+                                      +-------------------+                                        ##
+                                                                                                   ##
+- Ability to communicate with computer/network from remote location with data link (i.e. Internet) ##
+- Can be accomplished by:                                                                          ##
+                                                                                                   ##
++---------+                                                                                        ##
+| ~ VPN ~ |                                                                                        ##
++---------+                                                                                        ##
+                                                                                                   ##
+- Allows for establishment of virtual point-to-point link between client & server using internet   ##
+- Needs client-side & server-side software                                                         ##
+- Gives remote access to corporate network as if they were present in building                     ##
+                                                                                                   ##
+                                                                                                   ##
+                                                                                                   ##
++-----------------------------+                                                                    ##
+| ~ Remote Desktop Software ~ |                                                                    ##
++-----------------------------+                                                                    ##
+                                                                                                   ##
+- Can be done with 3rd-party software/built in apps in OS                                          ##
+- Requires software/service to be running on client & server sides                                 ##
+- Allows end user to interact with programs running on server side                                 ##
+  (Apps run remotely on server BUT displayed on client)                                            ##
+- Client generally sent real-time screenshots of what is happening on server                       ##
+- This is how VMs are accessed remotely                                                            ##
+                                                                                                   ##
+                                                                                                   ##
+                                                                                                   ##
++------------------------+                                                                         ##
+| ~ Terminal emulation ~ |                                                                         ##
++------------------------+                                                                         ##
+                                                                                                   ##
+- Remotely control devices connected to network via CLI                                            ##
+                                                                                                   ##
+- 2 commonly used methods:                                                                         ##
+    ~ Telnet: Older form but still used                                                            ##
+              Has no security features                                                             ##
+              Sends all commands in clear text across link                                         ##
+    ~ SSH:    Replacement for Telnet                                                               ##
+              Has extensive security features                                                      ##
+              Allows for authentication                                                            ##
+              Allows transmitted data to be encrypted                                              ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

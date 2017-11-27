@@ -1,0 +1,35 @@
+                                                                                                   ##
+                          +-----------------------------------------------------------+            ##
+                          | +-------------------------------------------------------+ |            ##
+                          | | Investigating email privacy & authentication concerns | |            ##
+                          | +-------------------------------------------------------+ |            ##
+                          +-----------------------------------------------------------+            ##
+                                                                                                   ##
+- Email transmitted via SMTP in Multipurpose Internet Mail Extension (MIME) format                 ##
+                                                                                                   ##
+Secure MIME (S/MIME):                                                                              ##
+    ~ Widely accepted technique to overcome security problems with plaintext emails                ##
+    ~ Allows to encrypt email & provide confidentiality & can provide digitally signed emails      ##
+    ~ Provides:                                                                                    ##
+        > Authentication                                                                           ##
+        > Integrity                                                                                ##
+        > Non-repudiation (using Digital Signatures)                                               ##
+    ~ Doesn't work with web-based platforms!                                                       ##
+                                                                                                   ##
+Other options:                                                                                     ##
+    ~ Pretty Good Privacy (PGP)                                                                    ##
+    ~ GNU Privacy Guard (GPG):                                                                     ##
+        > Provide authentication (by Digital Signatures)                                           ##
+        > Confidentiality (by encrypting messages)                                                 ##
+                                                                                                   ##
++-------------------------------------------------------------------------------+                  ##
+| Best Practices:                                                               |                  ##
+|     ~ All secure email apps should provide:                                   |                  ##
+|         > Transparency (to end user)                                          |                  ##
+|         > Fast encryption (of even large files)                               |                  ##
+|         > Easily accessible (for all recipients)                              |                  ##
+|         > Affordable                                                          |                  ##
++-------------------------------------------------------------------------------+                  ##
+                                                                                                   ##
+                                                                                                   ##
+#####################################################################################################

@@ -1,0 +1,273 @@
+																								   ##																									 ##
+								+------------------------+										   ##											+------------------+									 ##
+								| +--------------------+ |										   ##											| +--------------+ |									 ##
+								| | Structured cabling | |										   ##										    | | Patch cables | |									 ##
+								| +--------------------+ |										   ##                                           | +--------------+ |									 ##
+								+------------------------+										   ##											+------------------+									 ##
+																								   ##																									 ##
+- Scenario:																						   ## - UTP has 4 pairs in it to work on network 													     ##
+	Ethernet (Unshielded Twisted Pair (UTP)) cables can be messy and you'll want to run them from  ##   (If less, used on telephone lines etc...)														 ##
+	1 computer to the router.																	   ##																									 ##
+	If that distance is large, you'll want to run the ethernet through the walls.                  ## +----------------+																				 ##
+                                                                                                   ## | ~ CAT Levels ~ |																				 ##
+	Problem:  Taking cables in and out of walls all the time can cause damage to the walls AND     ## +----------------+																				 ##
+	          cable                                                                                ## 																									 ##
+	Solution: Use a PATCH PANEl & WALL OUTLET (called "Horizontal run") which runs through the     ## - CAT 3:  Designed to run 10Mb networks (16 MHz)													 ##
+	          wall and, hopefully, will not have to be touched for years.                          ## - CAT 5:  Was great! But had to match up with CAT rating on PATCH PANEL (if applicable)...		 ##
+	          Use a PATCH CABLE to connect the computer to the WALL OUTLET and then use another    ##           ...so had to redo standard into CAT 5E!												     ##
+	          PATCH CABLE to connect the PATCH PANEL to the switch/router/hub etc.                 ## - CAT 5E: Designed due to flaws in CAT 5 compatibility.											 ##
+	          (PATCH PANELS are always physically located very close the switch...)                ##			Was meant to allow to run only 100Mb/s BUT was able to do 1000Mb/s 					     ##
+	          																					   ##																								     ##
+	          																					   ## - CAT 6:  Desgined to run 10Gb BUT only over short distances										 ##
+##################################################################################################### - CAT 6A: Improvement on CAT 6																	 ##
+																								   ##           Runs longer that CAT 6 (100m)															 ##
+							+-----------------------------+										   ##																									 ##
+							| +-------------------------+ |										   ## +-------------------+																				 ##
+							| | Fiber-optic and coaxial	| |										   ## | ~ Making cables ~ |																				 ##
+							| +-------------------------+ |										   ## +-------------------+																				 ##
+							+-----------------------------+										   ##																									 ##
+																								   ## - Indications on side of jack show types of cabling standards used for network cabling			 ##
++-------------------------------------+															   ##   (EIA/TIA 568A and EIA/TIA 568B)																	 ##
+| DIFFERENT FROM STANDARD UTP CABLES! |															   ## - The colour indication on a jack or PATCH PANEL will indicate whether to use 568A/B 				 ##
++-------------------------------------+															   ##																									 ##
+																								   ## - Making a PATCH CABLE:																			 ##
++-----------------+																				   ## 		Brown cable: Always going to stay on YOUR RIGHT!!											 ##
+| ~ Fiber-optic ~ |																				   ##       Blue cable:  Always stays in the centre! (Next to the brown)								 ##
++-----------------+																				   ##																									 ##
+																								   ##       (B's always stay in the same place!)														 ##
+- Used when standard UTP won't do																   ##																									 ##
+- Uses light instead of electricity																   ##		Split ORANGE cable so either wire is on either side of the BLUE for 569A or GREEN if B...	 ##
+- Benefits:																						   ##		(looking from YOUR LEFT) If GREEN comes before ORANGE, that's 568A!							 ##
+	~ Can be very long (length)																	   ##       REMEMBER: 'G' comes before 'O' in alphabet												     ##
+	~ Impervious to electromagnetic interference												   ##				  So, GREEN before ORANGE is alphetical												 ##
+																								   ##				  'A' in alphetical mean 568A...													 ##
+- 2 types of light transmitted:																	   ##																								     ##
+	1. Laser																					   ##		From LEFT to RIGHT, the patterns of the wire go...											 ##
+	2. Regular (using light emitting diodes)													   ##			Something white										+----------------------------------+ ##
+																								   ##			Solid                                               | REMEMBER: For each twisted pair  | ##
+	Different types of cable used for each one...												   ##															    | is a WHITE & COLOUR cable and    | ##
+		~ Single mode: Transmits LASER															   ##			Something white 									| the corresponding SOILD coloured | ##
+    	~ Multi-mode:  Transmit REGULAR (just LEDs really)										   ##			Solid  											    | cable next to it. For example,   | ##
+																								   ##																| the BLUE twisted pair will have  | ##
+- Always 2 cables when working with fiber-optic!!												   ##			Something white 									| a WHITE & BLUE cable and a solid | ##
+  (1 for sending and 1 for receiving)															   ##			Solid 												| BLUE cable...				       | ##
+- If 2 cables fused together, called a DUPLEX cable												   ##																+----------------------------------+ ##
+- HUNDREDS of types of fiber-optic connectors BUT only need to know 3:							   ##			Something white 																		 ##
+    1. ST connector: Round (in shape)															   ##			Solid 																					 ##
+					 One of oldest connnectors around											   ##																									 ##
+					 ST (Stick and Twist - not actually what it stands for)						   ##		Doing a 568B is the same as A but split the GREENS either side of the BLUE instead			 ##
+	2. SC connector: Square (in shape)															   ##         Use an RJ-45 connector at end of cable for networks. RJ-11 used for telephones!			 ##
+					 SC (Stick and Click)														   ## +------------------------------------------------------------------------------------------------+ ##
+	3. LC connector: Has 2 connectors & a lot smaller (in shape)								   ## |     After research I've concluded, PATCH cables and ETHERNET cables are the SAME thing!!!      | ##
+					 LC (Local Connector)														   ## +------------------------------------------------------------------------------------------------+ ##
+																								   ##																									 ##
+																								   ## +------------------+																				 ##
+																								   ## | ~ Fire ratings ~ |																				 ##
++-------------+																					   ## +------------------+																				 ##
+| ~ Coaxial ~ |																					   ##																									 ##
++-------------+																					   ## - Each cable is given a fire rating...														     ##
+																								   ##		~ PVC (worst):   No fire rating and going to cause lots of noxious smooke etc.				 ##
+- Very very old but still used...																   ##		~ Riser:	     Designed to run between floors in building (better than PVC but not best)	 ##
+- Reason called COAX is due to having > 1 connection sharing an axis							   ##		~ Plenum (best): Is standard for all cabling!											     ##
+- Types of coaxial defined by RG (Radio Grade) values, 2 need to know:							   ##                        																			 ##
+ 	1. RG-6:  Used to connect cable to modem													   ##																									 ##
+	2. RG-59: Used to connect old cable TV boxes												   ########################################################################################################
+																								   ##																									 ##
+	- Impedane of coax measured in 'ohm's 														   ## Other than UTP, there is STP (Shielded Twisted Pair)												 ##
+	- Both these types set at 75 ohms 															   ## This is very similar to UTP but has a foil layer between cables and outer casing					 ##
+																								   ## These will be used in environment where there is lots of noice and can cause interference 		 ##
+- Connectors:																					   ##																									 ##
+	~ British Naval Connector/Bayonette, Niell-Conelman (BNC): Used in video					   ##																									 ##
+															   Used in very old networks		   ########################################################################################################
+	~ F connector: More probable connector nowadays												   ##																									 ##
+																								   ##                                          +---------------------+									 ##
+																								   ##                                          | +-----------------+ |
+#####################################################################################################                                          | | Modern Ethernet | |
+																								   ##                                          | +-----------------+ |
+ 		                            +---------------------+										   ##                                          +---------------------+
+									| +-----------------+ |										   ##
+                               	    | | Ethernet Basics | |									       ##                              +-------------------------------------------+
+                               	    | +-----------------+ |										   ##                              | ~ MODERN ETHERNET, SWITCHES, AND DUPLEX ~ |
+                               	    +---------------------+										   ##                              +-------------------------------------------+
++--------------------+																		       ##
+| ~ Early Ethernet ~ |																			   ##
++--------------------+																			   ## ~ 100BaseT and 100BaseTX are exact SAME standard! ~
+																			                       ##
+																								   ##
+- 1st generation ethernet network was 10Base5:													   ## - 100BaseTX: 																						 ##
+    ~ Ethernet cable running up in ceiling														   ##     ~ 100 Mbps 																					 ##
+ 	~ Screw in transivers on ceiling above where computer is 									   ##     ~ 1024 Nodes/hub
+ 	~ Drop cable from transiver to NIC on computer												   ##     ~ Allowed 100m from node to hub
+- Segmented Ethernet:																			   ##     ~ CAT 5e or better
+ 	~ 10Base5 connection with 'drops' and CSMA/CD 												   ## - 100BaseFX is Fiber Optic version of 100BaseTX (can be referred to as 100BaseF)
+ 	~ In later Ethernet types, CSMA/CD does exist but in weird way so kept to 10Base5  			   ##     ~ 1024 Nodes/hub
+ 																								   ##     ~ Mulitmode
+- 10Base2:																						   ##     ~ Allowed 2km from node to hub
+    ~ 10Base5 was pain to work with																   ##
+    ~ BNC connector (on end of cable) plugs into one end of T connector that is on NIC             ## - Switch stores all MAC addresses connected to it and what port they are on in the MAC table
+    ~ At ends of cables (on T connector) is a Terminating Resistor								   ## - Half-duplex is where you can send and receive but NOT at the same time - a hub
+    ~ If wanted to add another computer, take of Terminating Resistor off T connector and run      ## - Full-duplex is where you can send and receive at the same time - switch
+      another cable from that T connector to the T connector on the NIC of the new computer  	   ## - 10BaseT only supported Half-duplex
+    ~ Up to 30 devices on 1 10Base2 segment 													   ## - 100BaseT supports full-duplex and is the default mode when setting up network
+                                                           										   ##
+                                                           										   ##
+Through the years IEEE 802.11 Ethernet standards have increased significantly from wires to        ##                                        +-------------------------+
+speeds...                                                           							   ##                                        | ~ CONNECTING SWITCHES ~ |
+                                                           										   ##                                        +-------------------------+
+                                                           										   ##
+There is a standard nomenclature when discussing different Ethernet types e.g. 10Base5...          ##
+        																						   ## +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+								 ##
++------++-----------++-----+ 																	   ## ( Straight-through cable = SAME connection on both RJ45 (568A/B) (								 ##
+|  10  ||    Base   ||  5  |                                          							   ## ) Crossover cable        = DIFFERENT connection on both RJ45     )								 ##
++------++-----------++-----+          															   ## +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+								 ##
+  /|\        /|\	   /|\																		   ##
+   |          |		    +----------- Before switches, measured length of cable i.e. 5 = 500m	   ## - In olden days, crossovers were used to connect switches together  								 ##
+   |          |					     Nowadays, value 'T' means has switch using UTP				   ## - On modern switch, an 'Uplink Port' already has the crossover in it so can just use a normal  	 ##
+   |          +--------------------- Value = Base/Broad...+-------------------------------------+  ##   straight-through cable to connect 2 switches 									                                                                    +-------------------------------- Speed in Mb/s        | Broadband = 1 cable that has many   |	##
+   														  |             different channels      |  ## - If using 'Uplink Port' as crossover, will be a button to change it from normal port 		 	 ##
+          	                                              |             conversations at once   |  ##
+                   										  |                                     |  ## - Nowadays most ports have 'auto sensing' ports which will auto configure whether they are plugged
+     													  | Base      = There is only 1 channel |  ##   into another switch or a host
+     													  |             1 convo at a time       |  ##
+     													  +-------------------------------------+  ##
+     													    									   ##                              +----------------------------------------------+
+     													  										   ##                              | ~ Gigabit Ethernet and 10-gigabit Ethernet ~ |
+                            +------------------------------------+                                 ##                              +----------------------------------------------+
+					        | ~ The daddy of Ethernet, 10BaseT ~ |                                 ##
+					        +------------------------------------+                                 ##
+							                                 									   ## - 1000BaseCX:
+															   									   ##     + Copper standard 																			 ##
+- If segment on old Ethernet broke, whole network would collapse								   ##     + Uses coaxial cable called 'Twinax' which was 25m between switch and node 					 ##
+                                   																   ##																									 ##
+- Late 1980s is when IBM introduced Token Ring                                          		   ## - 1000BaseSX 																					     ##
+- Token Ring had huge cube called MSAU (Multi-Station Access Unit) where computers would plug into ##     + Mulitmode 																				     ##
+  to be on network                                        				  						   ##     + 500m between switch and node 																 ##
+  																								   ##																									 ##
+- Problems:																						   ## - 1000BaseLX:																						 ##
+    ~ Very expensive 																			   ##     + Singlemode 																					 ##
+    ~ Only IBM so people couldn't make it themselves 											   ##     + 5m between switch and node 																	 ##
+ 																								   ##																									 ##
+- Ethernet made a change and shrunk bus down into box and used UTP to connect computers to it      ## - 1000BaseT: 																						 ##
+  This was called 10BaseT 																		   ##     + Originally designed to use CAT 5e but uses CAT 6 											 ##
+- 10BaseT no longer used but is described as Daddy of Ethernet 									   ##     + 100m between swtich and node 																 ##
+ 																								   ##																									 ##
+ 																								   ## - 10 GbE (10 gb Ethernet): 																		 ##
+#####################################################################################################     + Many standards because have to work with SONET network tech which is backbone of internet    ##
+																								   ##	  + Standards that work with LANs and those that work with SONET 								 ##
+							+-----------------------------------+							       ##																									 ##
+ 							| +-------------------------------+ |								   ##     + 10GBaseT:																					 ##
+							| | Installing a Physical Network | |								   ##	      ~ CAT 6/6A (should be run on 6A) 															 ##
+							| +-------------------------------+ |								   ##		  ~ Running on CAT 6 means only distance of 55m 											 ##
+							+-----------------------------------+								   ##		  ~ Running on CAT 6A means distance of 100m 												 ##
+																								   ##         ~ 10GBaseSR (most basic): 																 ##
++----------------------------------------+														   ##             > Multimode cable 																	 ##
+| ~ Introduction to structured cabling ~ |														   ##             > Length variable depending on type of cable used (26m - 400m) 						 ##
++----------------------------------------+														   ##     	  ~ 10GBaseLR (Long-Range): 															     ##
+																								   ##             > Singlemode 																			 ##
+- 3 important units in a structured cabling system:												   ##         	  > Has 1310nm singlemode cable 														 ##
+    1. 'Telecommunication Closet/Equipment Room' where all switches and stuff run out via... 	   ##		  	  > Up to 10km 																			 ##
+    2. 'Horizontal Run' to...																	   ##		  ~ 10GBaseER: 																				 ##
+	3. 'Work Area'																				   ##			  > Singlemode 																			 ##
+																								   ##			  > Has 1550nm singlemode cable 														 ##
+- Aim is to not mess with Horizontal Runs so Horizontal Runs go into Patch Panel...				   ##			  > Up to 40km																			 ##
+  ...Patch Cable from panel goes into switch etc.												   ##																									 ##
+- Horizontal Run goes from Patch Panel to Wall Outlet...										   ## - Each of the 3 main versions listed above have an equivalent SW/EW/LW value where the values are  ##
+- Patch cable from Wall Outlet goes to individual host/another switch							   ##   EXACTLY THE SAME but are designed to run on SONET 												 ##
+																								   ##																									 ##
+- Need to follow TIA Standards for Structured Cabling which holds:								   ##																								     ##
+    + How to wire individual crimps																   ##                                        +----------------------+ 									 ##
+	+ How many Wall Outlets per wall etc.														   ##                                        | ~ Switch backbones ~ |                                    ##
+																								   ##										 +----------------------+ 									 ##
++---------------------+																			   ##
+| ~ Crimping Cables ~ | 																		   ##
++---------------------+																			   ## - Backbone = If you have 5 switches connected like a star... 																									 ##
+																								   ##              The centre switch is high speed and all others are aswell but hosts connected outside
+- 8 pins in RJ45 connector:																		   ##              can be slower
+    + Pin 1 & 2 are transmits																	   ##              Where the term comes in that the centre is feeding the outer
+	+ Pin 3 & 6 are recieves																	   ## - GBIC (Gigabit Interface Converter) are small devices designed to be moved in and out of switches ##
+																								   ##   Allow to have multiple switches that connect to backbone networks and run at higher speeds than
+- Those pins for transmits/recieves are the difference between 568A/B and are either...			   ##   the rest of the network
+  GREEN or ORANGE																				   ##   The problem is that they are so easy to connect up, you can accidentally form a Bridge Loop
+																								   ##																						|
++----------------------+																		   ##																					    |
+| ~ Punchdown Blocks ~ |																		   ##										+-----------------------------------------------+
++----------------------+																		   ##									    |
+																								   ##                                      \|/ 																									 ##
+- Use 110 Punchdown for all other types of connectors except RJ45								   ##       +--------+                  +--------+                  +--------+
+- EVERYTHING in networking world has a CAT rating												   ##       | Switch |------------------| Switch |------------------| Switch |
+- On Patch Panel, do not have to split cables as Panel does it for us							   ##       +--------+				    +--------+                  +--------+
+- Always put first (Blue) and last (Brown) in first so cable gets lined up properly				   ##			\_                          |
+- Punchdown cables into RJ45 Jack which will go into Wall Outlet								   ##			  \_                        |
+																								   ##			    \_                      |
+- Making a Horizontal Run:																		   ##				  \_                    |
+    + Punch 1 side into Patch Panel that will be in Storage Room								   ##					\_                  |
+	+ Punch other side into RJ45 Jack to put into Wall Outlet									   ##					  \_                |
+	+ Punch with 110 Punchdown																	   ##		+----------->	\_              |
+																								   ##		|				  \_            |
++------------------------------------------------------+										   ##		|					\_          |																									 ##
+| ~ MDF, IDF, demarc, and tour of the equipment room ~ |										   ##		|					  \_        |
++------------------------------------------------------+										   ##		|						\_  +--------+
+																								   ##		|						  \_| Switch |																									 ##
+- 19 inch is usually standard for Equipment Rack												   ##		|							+--------+																									 ##
+- Main Distribution Frame (MDF) in Equipment Room												   ##  Bridge Loop
+- Intermediate Distribution Frames (IDF) are other frames in the building but not the MDF		   ##
+- A standardised height on a rack is called a 'U' which is 1 and 3/4 inch						   ## - Bridge Loops are bad as if the switch on the left sends out a packet, it can just loop forever
+- The 'Demarc' is the area which separates your property from the phone company's property		   ## - Way to overcome Bridge Loops is the Spanning Tree Protocol (STP) which is completely automatic
+- If building is leased, there is a 'Demarc Extension' as there is; the phone company's property,  ##   in smart modern day switches
+  your property, and the building's property 													   ## - If Bridge Loop happens, switches will start talking to each other and turn off one of their own
+																								   ##   ports to prevent Bridge Loops happening
++-------------------+																			   ## - Another advantage to switches is that they prevent the need for Daisy Chaining
+| ~ Testing cable ~ |																			   ##
++-------------------+																			   ##
+																								   ##
+- 'Wiremap' is the kind of tester I have that checks all pins individually						   ##
+- 'Continuity' means whether the cable is actually connected at all								   ##
+- To test for distance in cable use a Time Domain Reflecometer (TDR)							   ##
+- TIA standards specify that a Horizontal Run can be no more than 90m							   ##
+- Fiber Optic use Optical TDR (OTDR)															   ##
+- 'Crosstalk' keeps a cable from working at a particular level									   ##
+																								   ##
++----------------------------------------+														   ##
+| ~ Troubleshooting structured cabling ~ |														   ##
++----------------------------------------+														   ##
+																								   ##
+- When network goes down, structured cabling is last place you'd look for an error...			   ##
+- Steps:																						   ##
+    + Check link light on both sides (Host & Switch)											   ##
+	+ Check network settings in OS																   ##
+	+ Check for 'Loopback': In RJ45, Pin 1 will be connected to Pin 3 and Pin 2 to Pin 6...		   ##
+	    ~ In real world, 'Loopback's are history and not really used anymore					   ##
+		~ Plug 'Loopback' into Ethernet port on Host and ping self...							   ##
+		~ If reply from ping, means NIC is okay													   ##
+	+ Check the patch cable																		   ##
+	+ Check Wall Outlet																			   ##
+																								   ##
++-------------------------------------------------+												   ##
+| ~ Advanced troubleshooting structured cabling ~ |												   ##
++-------------------------------------------------+												   ##
+																								   ##
+- If equipment in Equipment Room goes down, first thing to suspect is electricity                  ##
+- Can also use a Voltage Monitor which can be plugged in and can watch the voltage over a period   ##
+  of time 																						   ##
+- Uninterruptable Power Supplies (UPS) can be mounted on equipment rack that will take care of     ##
+  power issues 																					   ##
+- Environmental/Temperature Monitors can be installed in Equipment Room to keep an eye on 		   ##
+  temp/atmosphere equipment is exposed to 														   ##
+- If problem with Horizontal Run (which is rare), best option is to use TDR 					   ##
+- Look for interference with Horizontal Run. Even though this is unlikely as the network person    ##
+  that installed it should have already checked if there was interference...this can still happen  ##
+  (i.e. if AC is installed in office and motors put too close to Horizontal Run) 				   ##
+- Fiber Optic (esp. multimode) is susceptible to 'Modal Distortion' with way light enters and 	   ##
+  exits the cable 																				   ##
+ 																								   ##
++-----------------------------+ 																   ##
+| ~ Using a toner and probe ~ |																	   ##
++-----------------------------+ 																   ##
+ 																								   ##
+- Use 'Fox and Hound' ('Tone Generator and Tone Probe') to put into connection to see where is 	   ##
+  connected 																					   ##
+- The 'Fox' plugs into the port and the 'Hound' then goes to the Patch Panel and will generate     ##
+  a sound when the 'Hound' is on the right port 												   ##
+  																								   ##
+  																								   ##
+#####################################################################################################
