@@ -29,7 +29,7 @@ This repo contains only facts *(and are referenced where applicable)*. The main 
 Yep. Great question and 1 that needs answering. Also, it is worth pointing out that these topics are broad and not specific stuff (i.e. section on 'Design Patterns' **not** 'the Fascade pattern' or a section on 'Server-side frameworks' not on '.NET'). Anyway, the topics currently held in here are:
   - [Architecture](architecture/)
   - [Cryptography](cryptography/)
-  - [Machine Learning](maching_learning/)
+  - [Machine Learning](machine_learning/)
   - [Networking](networking/)
 
 Happy learning!! :)
