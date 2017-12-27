@@ -55,9 +55,45 @@ In the golden gate bridge, there are more 1 million+ rivets & people who underst
 May have hundreds/thousands little pieces *(components)* but each 1 of them is a handcrafted little piece *(little or no commonality)* so do not have same level of componentisation that the real world has.
 
 
-
-In traditional manufacturing, many hours/lots of money goes into predicatability to try and ensure that the thing does what it is supposed to do. That is not required in software world as *(compilation is so cheap)* we would be better off writing tests for the code we write...
+In traditional manufacturing, many hours/lots of money goes into predictability to try and ensure that the thing does what it is supposed to do. That is not required in software world as *(compilation is so cheap)* we would be better off writing tests for the code we write...
 
 **Testing = engineering rigor in software**
 
 > "Software may be cheap to build, but it is *incredibly* expensive to design" - *(Reeves, 1992)*
+
+
+#### Architectural Styles
+
+These tell us, in broad terms, how to organise our code. It is the highest level of granularity & specifies:
+  - Layers
+  - High-level modules
+  - Relationships between modules & layers
+
+Examples of styles are:
+  - Component-based
+  - Monolithic application
+  - Layered
+  - Pipes & Filters
+  - Event-driven
+  - Publish-subscribe
+  - Plugins
+  - Client-server
+  - Service-oriented
+
+Style can be implemented in various ways, with specific technical environment, specific policies, frameworks or practices
+
+
+#### Architectural Patterns
+
+Pattern is a recurring solution to a recurring problem. In the case of Architectural Patterns, they solve the problems related to the Architectural Style. I.e:
+> *"What classes will we have and how will they interact, in order to implement a system with a specific set of layers?""
+> *"What high-level modules will we have in our Service-Oriented Architecture and how will they communicate?"*
+> *"How many tiers will our Client-Server Architecture have?"*
+
+Patterns have an extensive impact on the code base, most often impacting the whole application either horizontally *(i.e. how to structure the code inside a layer)* or vertically *(i.e. how a request is processed from the outer layers into the inner layers and back)*.
+
+Example of patterns are:
+  - Three-tier
+  - Microkernel
+  - MVC *(Model View Controller)* - Solves the problem of separating UI from the model
+  - MVVM *(Model View View-Model)*
