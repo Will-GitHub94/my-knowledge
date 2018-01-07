@@ -19,11 +19,11 @@ The author thought that Lewis & Fowler did a great job in defining the character
 2. [Organisation around Business Capabilities](#organisation-around-business-capabilities)
 3. [Products not Projects](#products-not-projects)
 4. [Smart endpoints & dumb pipes](#smart-endpoints-&-dumb-pipes)
-5. Decentralised Governance
-6. Decentralised Data Management
-7. Infrastructure Automation
-8. Design for failure
-9. Evolutionary Design
+5. [Decentralised Governance](#decentralised-governance)
+6. [Decentralised Data Management](#decentralised-data-management)
+7. [Infrastructure Automation](#infrastructure-automation)
+8. [Design for failure](#design-for-failure)
+9. [Evolutionary Design](#evolutionary-design)
 
 
 ##### Componentisation via Services
@@ -71,3 +71,41 @@ A good example here is the Internet itself...
 <img src="assets/esb-vs-endpoints-smarts.png" alt="Smart enpoints & dumb pipes"/>
 
 ***
+
+#### Decentralised Governance
+
+***
+
+#### Decentalised Data Management
+
+In a traditional monolith, there is 1 database to rule them all *(best LOTR reference ever!)*.<br>
+Shocking but microservices also rejects this notion and says that each service should be responsible for its own data *(have their own data store)* & have its own persistence.
+
+This gives freedom to services on how it stores its data...<br>
+Got a Node backend talking to a Mongo instance? Cool. Want a .NET app speaking to MySQL? Awesome. Even want a basic C++ widget with a flat-file system? Yeah, it can do that too.
+
+Amazon says that services shouldn't be able to talk to each other via the data but throuhg the endpoints that they expose.
+
+***
+
+#### Infrastructure Automation
+
+The clue is in the name:
+
+- Continuous Delivery...
+- Blue/Green Deployment...
+- Monitoring...
+
+***
+
+#### Design for Failure
+
+This is by far the easiest one to explain. By fact of splitting up the application into several services, this gives greatly defined cohesive boundaries in that each service is independently upgradable, replaceable etc...<br>However... this is also very tricky to implement. If you are going to have independent, remote services with no centralised governance, they are going to fail *(especially when attempting to distribute the application (i.e. incompatibility issues))*
+
+At the most famous level of this characteristic, you have [Netflix's Chaos Monkey](https://netflix.github.io/chaosmonkey/) which intentionally brings down services in an attempt to increase rigor, response time, check level of cohesion *(bringing down 1 service should not bring down another)*.
+
+***
+
+#### Evolutionary Design
+
+

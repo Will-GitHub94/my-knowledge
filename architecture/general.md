@@ -53,44 +53,54 @@ You can call some instability to happen that won't manifest for hundreds of line
 ### Economy & Scale
 
 ##### Traditional manufacturing
+
 In the golden gate bridge, there are more 1 million+ rivets & people who understand structural integrity of bridges will be able to tell you what each one is for.
 
 ##### Software
-May have hundreds/thousands little pieces *(components)* but each 1 of them is a handcrafted little piece *(little or no commonality)* so do not have same level of componentisation that the real world has.
+
+May have hundreds/thousands little pieces *(components)* but each 1 of them is a handcrafted little piece *(little/no commonality)* so do not have same level of componentisation that the real world has.
 
 
 In traditional manufacturing, many hours/lots of money goes into predictability to try and ensure that the thing does what it is supposed to do. That is not required in software world as *(compilation is so cheap)* we would be better off writing tests for the code we write...
 
 **Testing = engineering rigor in software**
 
-> "Software may be cheap to build, but it is *incredibly* expensive to design" - *(Reeves, 1992)*
+> *"Software may be cheap to build, but it is *incredibly* expensive to design"* - **(Reeves, 1992)**
 
 ***
 
+## Styles and Patterns
+
+The terms of architectural styles & architectural patterns are commonly used interchangeably. Some sources (i.e. [MSDN](https://msdn.microsoft.com/en-us/library/ee658117.aspx?ranMID=24542&ranEAID=TnL5HPStwNw&ranSiteID=TnL5HPStwNw-fOBnxMTYDA5TWBJ8EbAVNg&tduid=(4e04d907e9042f60fa8288fc649e7257)(256380)(2459594)(TnL5HPStwNw-fOBnxMTYDA5TWBJ8EbAVNg)())) agree with this and say the 2 are the same. However, the author decided to differentiate between the 2 purely because the goal of some patterns/styles seem to be different and split into different sections. The author also chose to differentiate here as there are so many patterns/styles to all fit under 1 umbrella terminology so the author found it useful to categorise these differently
+
+If this not a view that is shared you can simply ignore this differentiation :).
+
+To separate these out, the author like to refer to [Fairbanks & Keeling's](http://www.georgefairbanks.com/blog/architecture-patterns-vs-architectural-styles/) definition.
+
 #### Architectural Styles
 
-These tell us, in broad terms, how to organise our code. It is the highest level of granularity & specifies:
+Keeling used the example of a toolbox in a standard drawing application. Items that you see in the toolbox *(i.e. shapes, paintbrush, selection)* have been defined by the architectural style. The style also tells us as to how these items/modules interact with each other.
 
-  - Layers
-  - High-level modules
-  - Relationships between modules & layers
+Examples of *styles* are:
 
-Examples of styles are:
+- Component-based
+- Monolithic application
+- Layered
+- Pipes & Filters
+- Event-driven
+- Publish-subscribe
+- Plugins
+- Client-server
+- Service-oriented
 
-  - Component-based
-  - Monolithic application
-  - Layered
-  - Pipes & Filters
-  - Event-driven
-  - Publish-subscribe
-  - Plugins
-  - Client-server
-  - Service-oriented
-
-Style can be implemented in various ways, with specific technical environment, specific policies, frameworks or practices
+A style can be implemented in various ways, with specific technical environment, specific policies, frameworks or practices.
 
 
 #### Architectural Patterns
+
+Keeling proposes that if you think about standard OO programming, the classes & what makes them up *(i.e. properties, methods...)*, you can think of these as your architectural style
+
+> The patterns don't establish the vocabulary [...] of the core elements. They don't define 'client', they don't define 'server', they don't define 'pipe and filter' - **(Fairbanks, 2014)**
 
 Pattern is a recurring solution to a recurring problem. In the case of Architectural Patterns, they solve the problems related to the Architectural Style. I.e:
 
@@ -100,7 +110,7 @@ Pattern is a recurring solution to a recurring problem. In the case of Architect
 
 Patterns have an extensive impact on the code base, most often impacting the whole application either horizontally *(i.e. how to structure the code inside a layer)* or vertically *(i.e. how a request is processed from the outer layers into the inner layers and back)*.
 
-Example of patterns are:
+Example of *patterns* are:
 
 - Three-tier
 - Microkernel

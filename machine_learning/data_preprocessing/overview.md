@@ -1,6 +1,6 @@
 # Data Preprocessing
 
-Looking at this [data set](data_preprocessing/Data.csv), we can distinguish that *Country*, *Age*, & *Salary* are **independent** variables whereas *Purchased* is an **dependent** one
+Looking at this [data set](data_preprocessing/data/Data.csv), we can distinguish that *Country*, *Age*, & *Salary* are **independent** variables whereas *Purchased* is an **dependent** one
 
 In any machine learning model, you use **independent** variables to predict the **dependent** ones.
 

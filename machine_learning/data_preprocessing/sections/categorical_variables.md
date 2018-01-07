@@ -17,7 +17,7 @@ The issue with encoding columns some time is that the model will interpret some 
 In our data set, if we encode the *Country* column, we may end up with numerically ascending data. For example:
 
 | Text    | Encode |
-|---------|--------|
+|:-------:|:------:|
 | France  |   0    |
 | Germany |   1    |
 |  Spain  |   2    |
