@@ -33,9 +33,10 @@ Below is a description from MSDN on the 3 components of the pattern followed by 
 
 The image below is how the author best interpretted this pattern:
 
-<img src="../assets/mvc.PNG" alt="MVC" style="width: 100px"/><br>
+<img src="../assets/mvc.PNG" alt="MVC" style="height: 350px"/><br>
 
 Thoughts:
-  - MVC is mainly a client-side architectural pattern (like Angular which is MV*)
-  - It really is a true separation of concerns if you are splitting the client into 3 components...
-  - What is the amount of business logic held in the model? Will it not be a heavy SPA
+
+- MVC is mainly a client-side architectural pattern (like Angular which is MV*)
+- It really is a true separation of concerns if you are splitting the client into 3 components...
+- What is the amount of business logic held in the model? Will it not be a heavy SPA
