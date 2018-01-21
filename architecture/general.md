@@ -24,6 +24,12 @@ Design Document (blueprint) = Source Code
 
 For example, in traditional manufacturing, have to make sure that loads of money thrown into it to make it secure as it would be too ridiculous to watch a heavy vehicle roll over a bridge and watch it collapse and then go "well we need to build a better bridge next time". In software, tests/changes are incredibly cheap.
 
+### Hybrids
+
+On some occasions, 1 architecture pattern will not solve all problems. For example, you could maybe see that Pipes & Filters can solve 80% of your problems and cover the use cases but what about the extra 20%? You could try and find a way to force your business rules/logic to fit into a Pipes & Filters architecture **or** you could use another pattern. You, as an architect, have to make that executive decision.
+
+What I want to get across here is that you do not just have to use **1** pattern for every system. Hybrids can be created and you will see throughout this section that an advantage of some patterns *(i.e. microkernel)* is that they are easily embedded into other patterns.
+
 ***
 
 ### Physical Constraints
