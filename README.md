@@ -33,3 +33,7 @@ Yep. Great question and 1 that needs answering. Also, it is worth pointing out t
   - [Networking](networking/)
 
 Happy learning!! :)
+
+- [x] Witness
+- [ ] Seed
+- [ ] API
