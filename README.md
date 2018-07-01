@@ -27,7 +27,7 @@ This repo contains only facts *(and are referenced where applicable)*. The main 
 ### What are the current topics in this repo?
 
 Yep. Great question and 1 that needs answering. Also, it is worth pointing out that these topics are broad and not specific stuff (i.e. section on 'Design Patterns' **not** 'the Fascade pattern' or a section on 'Server-side frameworks' not on '.NET') so it is great for people like the author that follow the "Jack of all trades, master of none" principle. Anyway, the topics currently held in here are:
-  - [Architecture](architecture/)
+  - [Architecture](architecture/general.md)
   - [Cryptography](cryptography/)
   - [Machine Learning](machine_learning/)
   - [Networking](networking/)
