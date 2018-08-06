@@ -19,11 +19,13 @@ IPv6 was introduced as IPv4 was designed with a 32-bit-address system in mind. T
 IPv6 is a 128-bit addressing system which, yeah... is a whole lot more and expressed as 3.4 * 10^38.
 
 It's designed:
+
     + For efficient address allocation
     + To reflect topology of internet
     + To accomodate 64-bit MAC
 
 Allows flexibility in designing:
+
     + Hierarchical addressing
     + Hierarchical routing
 
@@ -37,7 +39,7 @@ Internet Service Providers _(ISPs)_ normally allocate IPv6 addresses with minimu
 
 Examples of IPv6 addresses _(with prefix)_ are _3ffd:2093:c003::/48_ with a 48-bit prefix **or** _3ffd:2093:c003:0000::/64_ with a 64-bit prefix _(RFC recommendation)_.
 
-### Site ID
+### _Site ID_
 
 The **Site ID** is the 16-bits that appear **AFTER** the prefix and gives over 65,000 _(again...to be exact @ 65,536)_ possible unique IDs.
 
@@ -60,6 +62,7 @@ Each of these sections is represented by a 4-digit hexadecimal number _(with eac
 Each section is separated out with a colon _(:)_.
 
 When written, the address can be simplified following these rules:
+
     + If the sections has more than 1 _(left-most)_ 0, then 0s can be removed
     _(i.e. 00c3 = c3)_
     + When removing leading 0s, at least 1 digit must be left
@@ -69,7 +72,7 @@ When written, the address can be simplified following these rules:
 
 ## Reserved IPv6 Ranges
 
-### Unspecified IPv6 Address'
+### _Unspecified IPv6 Address'_
 
 These are shown as; _0:0:0:0:0:0:0:0_ **or** _::_ and indicates the adsence of an address.
 
@@ -77,11 +80,11 @@ These are used as source address for packets to verify uniqueness of adress.
 
 These are never assigned to an interface or used as a destination
 
-### Loopback Address
+### _Loopback Address_
 
 Shown as; _0:0:0:0:0:0:0:1_ **or** _::1_
 
-### Compatibility Address'
+### _Compatibility Address'_
 
 These are used to aid the migration from IPv4 to IPv6 and allow the coexistence of IPv4 & IPv6 host on same network.
 
@@ -134,7 +137,7 @@ These addresses are used to encode IPv4 address of Teredo server _(after the fir
 
 ## IPv6 Link Local, 6to4 tunelling, & 4to6
 
-### Ipv6 Global Unicast Address'
+### _Ipv6 Global Unicast Address'_
 
 These:
     + Are equivalent to **public** IPv4 address'
@@ -142,7 +145,7 @@ These:
     + Are reachable on IPv6 internet
     + Are defined in [RFC 3587](https://tools.ietf.org/html/rfc3587)
 
-### IPv6 Link-local Address'
+### _IPv6 Link-local Address'_
 
 These:
     + Are used when communicating with neighbouring nodes on a single-link network
@@ -156,9 +159,10 @@ These:
 
 IPv6 routers never forward link-local traffic beyond these address'
 
-### IPv6 Site-local Address'
+### _IPv6 Site-local Address'_
 
 These:
+
     + Are equivalent to **private** IPv4 address'
     _(cannot be used to connect to internet directly)_
     + Are only assigned through address config
